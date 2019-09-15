@@ -3,7 +3,7 @@
 	
 
 	public class RandomQuiz {
-
+		static int attempts = 0;
 		public String run(String[] inputs) {
 			return Arrays.stream(inputs)
 					.mapToObj(this::quiz)
@@ -11,6 +11,8 @@
 		}
 		
 		public String quiz(String input) {
+			
+
 			Random random = new Random();
 			int randomNumber = random.nextInt(100 - 0) + 0;
 			
@@ -64,8 +66,9 @@
 		
 		private String winner(int random, int input){
 			if(random == input){
-				return "Winner !!";
+				return "Winner, Attempts made: "+attempts;
 			}
+			attempts++;
 			return "Try Again.";
 		}
 		
